@@ -113,7 +113,7 @@ When correlated with the authorized Nmap SYN scan, the short connection and rese
 
 ### TCP/445 Connection Evidence
 
-![Zeek TCP 445 connection details](screenshots/08-SMB-445-Connection.png)
+![Zeek TCP 445 connection details](screenshots/08-SMB-445-RSTO-Connection.png)
 
 ![Zeek RSTO connection state for TCP 445](screenshots/09-SMB-445-RSTO-State.png)
 
