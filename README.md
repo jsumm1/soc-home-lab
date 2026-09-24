@@ -88,3 +88,25 @@ The investigation involved:
 ### Investigation Report
 
 [View Full Investigation](investigations/nmap-syn-scan/README.md)
+
+### Investigation 02 — Fedora SSH Failed Authentication
+
+An authorized SSH authentication test was performed from Kali Linux (`192.168.40.100`) against a Fedora Linux server (`192.168.40.102`). Repeated failed authentication attempts were recorded by Fedora and ingested into Security Onion, while Zeek independently captured the associated SSH network sessions on TCP port 22.
+
+The investigation involved:
+
+- Reviewing Fedora SSH authentication logs
+- Identifying repeated failed login attempts
+- Hunting authentication failures in Security Onion
+- Analyzing `/var/log/secure` telemetry
+- Identifying the source and destination systems
+- Correlating SSH traffic with Zeek network telemetry
+- Analyzing TCP/22 SSH sessions
+- Mapping the activity to MITRE ATT&CK
+- Determining the final incident disposition
+
+**Final Disposition:** Expected Activity — Authorized Security Testing
+
+#### Investigation Report
+
+[View Full Investigation](investigations/02-fedora-ssh-failed-authentication/README.md)
