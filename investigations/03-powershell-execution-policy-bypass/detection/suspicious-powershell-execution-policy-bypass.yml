@@ -1,0 +1,35 @@
+title: Suspicious PowerShell Execution Policy Bypass
+id: 8c5d9e9f-5c2e-4d98-b5d1-4c8c2d2d1001
+status: experimental
+description: Detects PowerShell execution using the ExecutionPolicy Bypass option, which may be used to circumvent PowerShell execution restrictions.
+author: jsumm
+date: 2026-09-26
+
+tags:
+  - attack.execution
+  - attack.t1059.001
+
+logsource:
+  category: process_creation
+  product: windows
+
+detection:
+  selection_image:
+    Image|endswith:
+      - '\powershell.exe'
+      - '\pwsh.exe'
+
+  selection_commandline:
+    CommandLine|contains:
+      - '-ExecutionPolicy Bypass'
+      - '-ExecutionPolicy Unrestricted'
+      - '-ep Bypass'
+
+  condition: selection_image and selection_commandline
+
+falsepositives:
+  - Administrative scripts
+  - Software installation
+  - Legitimate IT automation
+
+level: medium
