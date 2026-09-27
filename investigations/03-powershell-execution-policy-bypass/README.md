@@ -331,7 +331,7 @@ Event Module: sigma
 Severity: medium
 ```
 
-![Custom PowerShell alert](screenshots/02-alert-details-overview.png)
+![Custom PowerShell alert](screenshots/05-alert-details-overview.png)
 
 This confirmed the complete detection pipeline:
 
@@ -369,7 +369,7 @@ with IP address:
 192.168.40.101
 ```
 
-![Affected host](screenshots/03-alert-host-details.png)
+![Affected host](screenshots/06-alert-host-details.png)
 
 The user associated with the event was:
 
@@ -389,7 +389,7 @@ The suspicious process was:
 powershell.exe
 ```
 
-![PowerShell process](screenshots/05-alert-process-name.png)
+![PowerShell process](screenshots/08-alert-process-name.png)
 
 The executable path was:
 
@@ -403,7 +403,7 @@ The full command line was:
 "C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -ExecutionPolicy Bypass -Command "Get-Process | Select-Object -First 5"
 ```
 
-![Suspicious command line](screenshots/07-alert-command-line.png)
+![Suspicious command line](screenshots/10-alert-command-line.png)
 
 The important suspicious indicator was:
 
@@ -424,7 +424,7 @@ PID: 8552
 Parent PID: 10692
 ```
 
-![PowerShell process ID](screenshots/09-alert-process-id.png)
+![PowerShell process ID](screenshots/12-alert-process-id.png)
 
 The Sysmon event code was:
 
@@ -434,7 +434,7 @@ Event ID 1
 
 which represents a **Process Creation** event.
 
-![Sysmon Event ID 1](screenshots/11-alert-sysmon-event-id-1.png)
+![Sysmon Event ID 1](screenshots/14-alert-sysmon-event-id-1.png)
 
 ---
 
@@ -450,7 +450,7 @@ process.pid:8552 OR process.parent.pid:8552
 
 This returned 24 related events.
 
-![PID 8552 Hunt pivot](screenshots/12-process-pivot-pid-8552.png)
+![PID 8552 Hunt pivot](screenshots/15-process-pivot-pid-8552.png)
 
 The related telemetry included:
 
@@ -471,7 +471,7 @@ One related endpoint event showed PowerShell modifying:
 C:\Users\jsumm\AppData\Local\Microsoft\Windows\PowerShell\StartupProfileData-NonInteractive
 ```
 
-![PowerShell file activity](screenshots/13-powershell-file-path.png)
+![PowerShell file activity](screenshots/16-powershell-file-path.png)
 
 The filename was:
 
@@ -534,7 +534,7 @@ Its parent PID was:
 2524
 ```
 
-![Parent PowerShell PID 10692](screenshots/18-parent-powershell-pid-10692.png)
+![Parent PowerShell PID 10692](screenshots/21-parent-powershell-pid-10692.png)
 
 This showed that the suspicious PowerShell process was launched from an already running PowerShell session.
 
@@ -554,7 +554,7 @@ Security Onion identified PID `2524` as:
 explorer.exe
 ```
 
-![Explorer PID pivot](screenshots/22-explorer-parent-pivot-pid-2524.png)
+![Explorer PID pivot](screenshots/25-explorer-parent-pivot-pid-2524.png)
 
 The executable path was:
 
@@ -568,7 +568,7 @@ The parent executable was:
 C:\Windows\System32\userinit.exe
 ```
 
-![Explorer process details](screenshots/23-explorer-process-details.png)
+![Explorer process details](screenshots/26-explorer-process-details.png)
 
 This established a normal interactive Windows process chain.
 
@@ -839,28 +839,28 @@ The complete evidence set documents:
 │
 └── screenshots/
     ├── 01-sysmon-telemetry-confirmed.png
-    ├── 02-alert-details-overview.png
-    ├── 03-alert-host-details.png
-    ├── 04-alert-user-details.png
-    ├── 05-alert-process-name.png
-    ├── 06-alert-process-executable.png
-    ├── 07-alert-command-line.png
-    ├── 08-alert-parent-process.png
-    ├── 09-alert-process-id.png
-    ├── 10-alert-timestamp.png
-    ├── 11-alert-sysmon-event-id-1.png
-    ├── 12-process-pivot-pid-8552.png
-    ├── 13-powershell-file-path.png
-    ├── 14-powershell-file-name.png
-    ├── 15-powershell-process-entity-id.png
-    ├── 16-powershell-parent-pid.png
-    ├── 17-powershell-file-event-overview.png
-    ├── 18-parent-powershell-pid-10692.png
-    ├── 19-parent-powershell-user-details.png
-    ├── 20-parent-powershell-file-rename-event.png
-    ├── 21-parent-powershell-file-activity.png
-    ├── 22-explorer-parent-pivot-pid-2524.png
-    └── 23-explorer-process-details.png
+    ├── 05-alert-details-overview.png
+    ├── 06-alert-host-details.png
+    ├── 07-alert-user-details.png
+    ├── 08-alert-process-name.png
+    ├── 09-alert-process-executable.png
+    ├── 10-alert-command-line.png
+    ├── 11-alert-parent-process.png
+    ├── 12-alert-process-id.png
+    ├── 13-alert-timestamp.png
+    ├── 14-alert-sysmon-event-id-1.png
+    ├── 15-process-pivot-pid-8552.png
+    ├── 16-powershell-file-path.png
+    ├── 17-powershell-file-name.png
+    ├── 18-powershell-process-entity-id.png
+    ├── 19-powershell-parent-pid.png
+    ├── 20-powershell-file-event-overview.png
+    ├── 21-parent-powershell-pid-10692.png
+    ├── 22-parent-powershell-user-details.png
+    ├── 23-parent-powershell-file-rename-event.png
+    ├── 24-parent-powershell-file-activity.png
+    ├── 25-explorer-parent-pivot-pid-2524.png
+    └── 26-explorer-process-details.png
 ```
 
 ---
